@@ -1,19 +1,19 @@
 # ActivityHub
-Bij Open-ICT willen we transparantie en samenwerking binnen onze community bevorderen door iedereen op de hoogte te houden van de activiteiten in onze tribes, gildes en Special Interest Groups (SIGs). Hiervoor willen we een scherm op de gang van Open-ICT plaatsen.
+**Opdrachtgever**:
 
-**OPEN-ICT PROJECT**
-
-**Opdrachtgever**
 HU Instituut voor ICT - Open-ICT
 
-**Contactpersoon**
+**Contactpersoon**:
+
 Hans Bastiaan, Docent
 E: hans.bastiaan@hu.nl
 
-**Projectnaam**
-_ActivityHub voor Open-ICT_
+**Projectnaam**:
 
-**Project beschrijving**
+ActivityHub voor Open-ICT
+
+**Project beschrijving**:
+
 Bij Open-ICT willen we transparantie en samenwerking binnen onze community bevorderen door
 iedereen op de hoogte te houden van de activiteiten in onze tribes, gildes en Special Interest Groups
 (SIGs). Hiervoor willen we een scherm op de gang van Open-ICT plaatsen dat interessante data uit
@@ -26,22 +26,26 @@ ervoor om een eigen systeem te laten bouwen door onze studenten: de ActivityHub.
 bijdragen aan de transparantie en samenwerking binnen de Open-ICT community. Daarnaast is het
 systeem een waardevolle leerervaring voor onze studenten.
 
-**Met welke technologieën en/of concepten komen de studenten in aanraking?**
+**Met welke technologieën en/of concepten komen de studenten in aanraking?**:
+
 Het opleveren van een totaalproduct, van software tot en met de hardware. Web- en/of
 appontwikkeling voor het scherm op de gang, het automatiseren van het beheer, en het
 automatiseren van processen voor de redactie en moderatie rondom de content die de gebruiker te
 zien krijgt.
 
-**Verwachte benodigde rollen**
+**Verwachte benodigde rollen**:
+
 BIM, UX, FE, BE, TI, CSC
 
-**Welke probleem of innovatie wordt met deze opdracht opgelost?**
+**Welke probleem of innovatie wordt met deze opdracht opgelost?**:
+
 Momenteel missen we een effectief systeem om real-time informatie over activiteiten en
 ontwikkelingen binnen Open-ICT te delen. De huidige methoden zijn fragmentarisch en bieden niet
 de gewenste cohesie. Daarnaast brengen externe oplossingen beheers- en privacyproblemen met
 zich mee.
 
-**Hoe ziet het ideale eindresultaat eruit?**
+**Hoe ziet het ideale eindresultaat eruit?**:
+
 Aan het einde van het project wordt een volledig functioneel information display system (de
 ActivityHub) op de gang van Open-ICT opgeleverd dat de aandacht van onze community trekt en
 vasthoudt.
