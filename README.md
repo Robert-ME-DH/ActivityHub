@@ -1,4 +1,20 @@
 # ActivityHub
+
+**Rol verdeling**
+- Fatima:    CSC, FE
+- Daud:      UX, TI
+- Enrico:    TI, FE
+- Ethan:     BE, FE
+- Robert:    BIM, BE
+- Asmir:     CSC, UX
+
+
+
+
+
+
+
+
 **Opdrachtgever**:
 
 HU Instituut voor ICT - Open-ICT
