@@ -87,20 +87,20 @@ body {
     gap: 10px;
 }
 
-.date img, .event img, .location img {
+.countdown img, .date img, .event img, .location img {
     margin-right: 10px;
     width: 20px; /* Adjusted icon size */
     height: auto;
 }
 
-.date, .event, .location {
+.countdown, .date, .event, .location {
     font-size: 16px;
     color: black;
     display: flex;
     align-items: center;
 }
 
-.date {
+.countdown {
     font-weight: bold;
 
 }
