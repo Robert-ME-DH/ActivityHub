@@ -3,43 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workshop Usability Testing</title>
+    <title>Open-ICT Activityhub</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
+
+        <!-- Open-ICT Logo - rechtsonder op de grote foto -->
         <div class="sidebar">
             <ul>
-                <li>Andere activiteit</li>
-                <li class="active">Workshop Usability Testing</li>
-                <li>Andere activiteit</li>
-                <li>Andere activiteit</li>
-                <li>Andere activiteit</li>
-                <li>Andere activiteit</li>
+                <li class="active">Mini Workshops - Jaar 1</li>
+                <li>Business Gilde (woensdagmiddag)</li>
+                <li>AI Gilde (woensdagmiddag)</li>
+                <li>UX Gilde (donderdagmiddag)</li>
+                <li>FE Gilde (donderdagmiddag)</li>
+                <li>Game Dev Gilde (donderdagmiddag)</li>
+                <li>Gilde TI (vrijdagmiddag)</li>
+                <li>Backend Gilde (vrijdagmiddag)</li>
+                <li>CSC Gilde (maandagmiddag)</li>
             </ul>
+                <!-- Tijdweergave obv tijd op de OS die HTML weergeeft -->
+                <div id="clock" class="clock"></div>
         </div>
         <div class="content">
-            <div class="image-container">
-                <img src="img/grote-foto.png" alt="Workshop Image" class="main-image">
-                <img src="img/openict-logo.png" alt="Open-ICT Logo" class="logo">
+            <div class="detail-container">
 
-                <!-- Event, Date, and Location Information -->
+                <!-- grote foto - bovenaan artikel-->
+                <img src="img/grote-foto.webp" alt="Workshop Image" class="main-image">
+                <div class="detail-container">
+                <!-- Open-ICT Logo - rechtsonder -->
+                <img src="img/openict-logo.png" alt="Open-ICT Logo" class="logo">
+            
                 <div class="info-overlay">
-                    <p class="countdown"><img src="icons/countdown.png" alt="Countdown Icon">start in 30 min </p>
-                    <p class="event"><img src="icons/event.png" alt="Event Icon"> Gilde UX</p>
-                    <p class="location"><img src="icons/location.png" alt="Location Icon"> HL15 4.094</p>
-                    <p class="date"><img src="icons/date.png" alt="Date Icon"> 01/01/2024 </p>
+                    <p class="countdown"><img src="icons/countdown.png" alt="Countdown Icon">09:30 - 11:00</p>
+                    <p class="date"><img src="icons/date.png" alt="Date Icon"> 08 oktober 2024 </p>
+                    <p class="location"><img src="icons/location.png" alt="Location Icon"> HL15</p>
+                    <p class="event"><img src="icons/event.png" alt="Event Icon">Jaar 1</p>
                 </div>
+
             </div>
             <div class="info-section">
-                <h1>Workshop Usability Testing</h1>
-                
+                <h1>Webbeveiliging, LEDs aansturen (Arduino) en Gamification</h1>
+                <h2>Check Discord voor de presentaties en andere activiteiten</h2>
+                <br>
+                <br>
                 <p class="description">
-                    Wil je leren hoe je effectief prototypes ontwerpt en test?
-                    Kom langs bij de workshop usability testing van het UX Gilde. Tijdens deze workshop leer je de basisprincipes van usability testing en hoe je deze kunt toepassen om gebruiksvriendelijke ontwerpen te creëren. Je ontdekt welke methoden en tools je kunt inzetten om waardevolle feedback van gebruikers te verzamelen. Daarnaast krijg je de kans om zelf aan de slag te gaan met het testen van prototypes in een interactieve setting.
+                    Dinsdagochtend werden er drie mini workshops gehouden voor jaar 1, waarbij Open-ICT studenten in de meest bezochte workshop webbeveiliging zelf konden experimenteren met onderwerpen zoals SQL-injecties, beveiliging met SSL/TLS, en het belang van correcte inputvalidatie en foutmeldingen. 
+                    Bij de workshop "LED's aansturen" leerde je hoe je met een Arduino Nano LED's, een potentiometer en een servo aanstuurt door middel van knoppen en code-logica voor interactieve schakelingen. 
+                    <br><br
                 </p>
+                <h3>[Juiste kennis ontwikkelen, Flexibel opstellen, Pro-actief handelen]</h3>
             </div>
         </div>
     </div>
+
+    <!-- Weergave tijd onderin de sidebar -->
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').innerText = `${hours}:${minutes}:${seconds}`;
+        }
+    
+        setInterval(updateClock, 1000);
+        updateClock(); // Call om klok direct te weergeven
+    </script>
+    
 </body>
 </html>
