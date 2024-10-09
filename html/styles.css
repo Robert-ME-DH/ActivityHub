@@ -19,6 +19,7 @@ body {
     background-color: #00a5de;
     padding: 15px;
     display: flex;
+    position: relative;
     flex-direction: column;
 }
 
@@ -50,11 +51,11 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px;
+    padding: 0px;
     position: relative;
 }
 
-.image-container {
+.detail-container {
     position: relative;
     width: 90%;
     height: auto;
@@ -105,19 +106,33 @@ body {
 
 }
 
+.clock {
+    position: absolute;
+    bottom: 20px;
+    margin-left: 12px;
+    font-size: 28px; /* h1 text/font size */
+    color: white;
+    text-align: center;
+}
+
 .info-section {
     text-align: left;
     width: 90%;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 h1 {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: bold;
 }
 
+h2 {
+    font-size: 22px;
+    color: rgb(103, 103, 137);
+}
+
 .description {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.5;
     margin-top: 20px;
 }
@@ -131,7 +146,7 @@ h1 {
         width: 75%;
     }
 
-    .image-container {
+    .detail-container {
         width: 100%;
     }
 
