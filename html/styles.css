@@ -21,6 +21,9 @@ body {
     display: flex;
     position: relative;
     flex-direction: column;
+    justify-content: center;   /* centreer sidebar activiteiten verticaal */
+    position: relative;        /* relatieve positie act. behouden */
+    height: 100%;              /* sidebar achtergrond blauw verticaal volledig */
 }
 
 .sidebar ul {
@@ -29,10 +32,11 @@ body {
 }
 
 .sidebar ul li {
-    padding: 10px 0; /* Reduced padding */
+    padding: 10px 0; 
     color: white;
-    font-size: 14px; /* Reduced font size */
-    white-space: nowrap; /* Prevent text from wrapping */
+    font-size: 20px; 
+    white-space: nowrap; 
+    text-align: right; /* non-active activiteiten sidebar rechts aligned */
 }
 
 .sidebar ul li.active {
@@ -40,19 +44,22 @@ body {
     color: black;
     font-weight: bold;
     padding: 15px;
-    margin-right: -15px; /* Extend the white background left to overlap the content */
-    width: calc(100% + 15px); /* Extend the white background width to connect with the content area */
+    margin-right: -15px; /* overlap sidebar highlighted activiteit met grote witte vlak */
+    width: calc(100% + 15px); /* witte achtergrond highlight sidebar wijder maken */
+    text-align: left; /* active activiteit sidebar links aligned */
+
 }
 
 .content {
     width: 80%;
-    background-color: white; /* Ensure the content background is white to match the sidebar */
+    background-color: white; 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 0px;
     position: relative;
+    margin-top: -1vh; /* marge bovenkant kleiner zodat 1080p weergave gang beter is */
 }
 
 .detail-container {
@@ -68,13 +75,13 @@ body {
 
 .logo {
     position: absolute;
-    bottom: 20px;  /* Adjust this value to control vertical placement */
-    right: 20px;   /* Adjust this value to control horizontal placement */
-    width: 10%;  /* Adjust this to scale the logo relative to the image */
+    bottom: -400px;  /* verticaal */
+    right: -200px;   /* horizontaal */
+    width: 10%;    /* logo grootte aanpassing */
     height: auto;
 }
 
-/* Info overlay on the bottom left with gradient */
+/* details overlay linksonder van grote-foto */
 .info-overlay {
     position: absolute;
     bottom: 20px;
@@ -90,12 +97,12 @@ body {
 
 .countdown img, .date img, .event img, .location img {
     margin-right: 10px;
-    width: 20px; /* Adjusted icon size */
+    width: 20px;
     height: auto;
 }
 
 .countdown, .date, .event, .location {
-    font-size: 16px;
+    font-size: 20px;
     color: black;
     display: flex;
     align-items: center;
@@ -110,7 +117,7 @@ body {
     position: absolute;
     bottom: 20px;
     margin-left: 12px;
-    font-size: 28px; /* h1 text/font size */
+    font-size: 33px;
     color: white;
     text-align: center;
 }
@@ -122,17 +129,22 @@ body {
 }
 
 h1 {
-    font-size: 28px;
+    font-size: 42px;
     font-weight: bold;
 }
 
 h2 {
-    font-size: 22px;
+    font-size: 28px;
+    color: rgb(103, 103, 137);
+}
+
+h3 {
+    font-size: 20px;
     color: rgb(103, 103, 137);
 }
 
 .description {
-    font-size: 18px;
+    font-size: 25px;
     line-height: 1.5;
     margin-top: 20px;
 }
