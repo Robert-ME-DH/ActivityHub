@@ -10,61 +10,68 @@ body {
 
 .container {
     display: flex;
+    flex-direction: column; /* Default to column for small screens */
     height: 100vh;
     width: 100vw;
 }
 
 .sidebar {
-    width: 20%;
     background-color: #00a5de;
     padding: 15px;
     display: flex;
-    position: relative;
     flex-direction: column;
-    justify-content: center;   /* centreer sidebar activiteiten verticaal */
-    position: relative;        /* relatieve positie act. behouden */
-    height: 100%;              /* sidebar achtergrond blauw verticaal volledig */
+    align-items: center;
+    height: auto;
+    width: 100%;
 }
 
 .sidebar ul {
     list-style: none;
     padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
 }
 
 .sidebar ul li {
-    padding: 10px 0; 
+    padding: 5px 10px;
     color: white;
-    font-size: 20px; 
-    white-space: nowrap; 
-    text-align: right; /* non-active activiteiten sidebar rechts aligned */
+    font-size: 18px;
+    white-space: nowrap;
+    text-align: center;
+    cursor: pointer;
 }
 
 .sidebar ul li.active {
     background-color: white;
     color: black;
     font-weight: bold;
-    padding: 15px;
-    margin-right: -15px; /* overlap sidebar highlighted activiteit met grote witte vlak */
-    width: calc(100% + 15px); /* witte achtergrond highlight sidebar wijder maken */
-    text-align: left; /* active activiteit sidebar links aligned */
+    padding: 10px;
+    text-align: center;
+}
 
+.clock {
+    margin-top: 10px;
+    font-size: 25px;
+    color: white;
+    text-align: center;
 }
 
 .content {
-    width: 80%;
+    width: 100%;
     background-color: white; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 0px;
-    position: relative;
-    margin-top: -1vh; /* marge bovenkant kleiner zodat 1080p weergave gang beter is */
+    justify-content: flex-start;
+    padding: 10px;
+    flex-grow: 1;
 }
 
 .detail-container {
     position: relative;
-    width: 90%;
+    width: 100%;
     height: auto;
 }
 
@@ -75,19 +82,18 @@ body {
 
 .logo {
     position: absolute;
-    bottom: -400px;  /* verticaal */
-    right: -200px;   /* horizontaal */
-    width: 10%;    /* logo grootte aanpassing */
+    bottom: -50px; /* Adjust for smaller screens */
+    right: 10px;
+    width: 15%; /* Responsive size */
     height: auto;
 }
 
-/* details overlay linksonder van grote-foto */
 .info-overlay {
     position: absolute;
     bottom: 20px;
-    width: 500px;
-    left: 0px;
-    padding: 20px 0px;
+    width: 90%;
+    left: 5%;
+    padding: 10px;
     background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
     border-radius: 0px;
     display: flex;
@@ -96,73 +102,83 @@ body {
 }
 
 .countdown img, .date img, .event img, .location img {
-    margin-right: 10px;
-    width: 20px;
+    margin-right: 5px; /* Smaller margin for better alignment */
+    width: 15px; /* Reduced size to fit text */
     height: auto;
 }
 
 .countdown, .date, .event, .location {
-    font-size: 20px;
+    font-size: 18px;
     color: black;
     display: flex;
     align-items: center;
 }
 
-.countdown {
-    font-weight: bold;
-
-}
-
-.clock {
-    position: absolute;
-    bottom: 20px;
-    margin-left: 12px;
-    font-size: 33px;
-    color: white;
-    text-align: center;
-}
-
 .info-section {
     text-align: left;
-    width: 90%;
-    margin-top: 0px;
+    width: 100%;
+    margin-top: 20px;
 }
 
 h1 {
-    font-size: 42px;
+    font-size: 28px;
     font-weight: bold;
 }
 
 h2 {
-    font-size: 28px;
+    font-size: 22px;
     color: rgb(103, 103, 137);
 }
 
 h3 {
-    font-size: 20px;
+    font-size: 18px;
     color: rgb(103, 103, 137);
 }
 
 .description {
-    font-size: 25px;
+    font-size: 18px;
     line-height: 1.5;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
-@media (max-width: 1080px) {
+/* Media queries for responsiveness */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+
     .sidebar {
-        width: 25%;
+        width: 20%;
+        height: 100%;
     }
 
     .content {
-        width: 75%;
+        width: 80%;
     }
 
-    .detail-container {
-        width: 100%;
+    .sidebar ul {
+        flex-direction: column;
+        align-items: flex-end;
     }
 
-    .info-section {
-        width: 100%;
+    .sidebar ul li {
+        font-size: 20px;
+        padding: 10px 0;
+        text-align: right;
+    }
+
+    .sidebar ul li.active {
+        text-align: left;
+    }
+
+    .info-overlay {
+        width: 500px;
+        left: 0;
+    }
+
+    .logo {
+        bottom: -400px;
+        right: -200px;
+        width: 10%;
     }
 }
