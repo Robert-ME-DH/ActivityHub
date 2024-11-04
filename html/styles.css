@@ -6,66 +6,133 @@
 
 body {
     font-family: Arial, sans-serif;
+    overflow: hidden; /* geen scroll in body, intern geregeld */
 }
 
 .container {
     display: flex;
-    height: 100vh;
-    width: 100vw;
+    height: 100vh; /* hele viewport hoogte */
+    width: 100vw; /* hele viewport breedte */
 }
 
 .sidebar {
-    width: 20%;
+    flex: 0 0 20%; /* vaste breedte 20% */
     background-color: #00a5de;
-    padding: 15px;
     display: flex;
-    position: relative;
     flex-direction: column;
-    justify-content: center;   /* centreer sidebar activiteiten verticaal */
-    position: relative;        /* relatieve positie act. behouden */
-    height: 100%;              /* sidebar achtergrond blauw verticaal volledig */
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 0px;
+    height: 100vh; /* volledige hoogte */
+    overflow-y: auto; /* intern scrollen bij teveel inhoud */
+    z-index: 2; /* sidebar blijft bovenop */
 }
 
-.sidebar ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.sidebar ul li {
-    padding: 10px 0; 
+.clock {
+    font-size: 33px;
     color: white;
-    font-size: 20px; 
-    white-space: nowrap; 
-    text-align: right; /* non-active activiteiten sidebar rechts aligned */
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: 20px;
 }
 
-.sidebar ul li.active {
+.timeline {
+    position: absolute; /* vaste positie tijdlijn */
+    left: 27px; /* uitgelijnd met cirkels */
+    top: 0;
+    bottom: 0; /* onderkant boven klok */
+    width: 4px;
     background-color: white;
-    color: black;
-    font-weight: bold;
-    padding: 15px;
-    margin-right: -15px; /* overlap sidebar highlighted activiteit met grote witte vlak */
-    width: calc(100% + 15px); /* witte achtergrond highlight sidebar wijder maken */
-    text-align: left; /* active activiteit sidebar links aligned */
+    z-index: 1; /* onder de cirkels en items */
+}
 
+.schedule {
+    align-self: center;
+    margin-top: 300px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    z-index: 2;
+}
+
+.schedule-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% + 12px); /* highlight sidebar extra breed */
+    padding: 20px 0; /* ruimte tussen items */
+    color: white;
+    font-size: 17px;
+}
+
+.schedule-item li {
+    font-size: 30px; 
+    font-weight: bold;
+    list-style: none;
+    text-align: right;
+    margin-right: 20px;
+    flex-grow: 1;
+}
+
+.schedule-item.active li {
+    font-size: 30px; 
+    font-weight: bold;
+    list-style: none;
+    margin-right: 20px;
+    flex-grow: 1;
+}
+
+.timeline-circle {
+    width: 20px;
+    height: 20px;
+    border: 4px solid white;
+    background-color: #00a5de; /* blauwe binnenkant cirkel */
+    border-radius: 50%;
+    margin-right: 10px; /* cirkel en tekst afstand */
+    z-index: 3; 
+}
+
+.active-circle {
+    background-color: white; /* highlighted cirkel */
+    margin-left: -30px; /* active cirkel align met tijdlijn */
+}
+
+.schedule-item.active {
+    background-color: white;
+    color: #00a5de;
+    font-weight: bold;
+    margin-left: 30px; /* highlight wit naar rechts */
+    border-radius: 15px; /* ronde hoeken */
+}
+
+.schedule-item span {
+    flex-grow: 1;
+    margin-left: 8px;
+    text-align: left;
+    font-size: 1.2em; /* responsive: schalend */
 }
 
 .content {
-    width: 80%;
+    flex: 1; /* vult resterende 80% breedte */
+    height: 100vh; /* hele viewport hoogte */
     background-color: white; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* inhoud begint bovenaan */
     padding: 0px;
     position: relative;
-    margin-top: -1vh; /* marge bovenkant kleiner zodat 1080p weergave gang beter is */
+    overflow-y: auto; /* scroll bij teveel inhoud */
+    z-index: 1; /* content onder sidebar bij overlap */
 }
 
 .detail-container {
     position: relative;
     width: 90%;
     height: auto;
+    margin-top: 8%;
 }
 
 .main-image {
@@ -75,13 +142,13 @@ body {
 
 .logo {
     position: absolute;
-    bottom: -400px;  /* verticaal */
-    right: -200px;   /* horizontaal */
-    width: 10%;    /* logo grootte aanpassing */
+    bottom: -580px;  /* verticaal logo positie */
+    right: -60px;   /* horizontaal logo positie */
+    width: 10%;    /* logo grootte aanpassen */
     height: auto;
 }
 
-/* details overlay linksonder van grote-foto */
+/* overlay info linksonder grote-foto */
 .info-overlay {
     position: absolute;
     bottom: 20px;
@@ -97,65 +164,55 @@ body {
 
 .countdown img, .date img, .event img, .location img {
     margin-right: 10px;
-    width: 20px;
+    width: 40px;
     height: auto;
 }
 
 .countdown, .date, .event, .location {
-    font-size: 20px;
     color: black;
     display: flex;
     align-items: center;
+    font-size: 40px;
 }
 
 .countdown {
     font-weight: bold;
-
-}
-
-.clock {
-    position: absolute;
-    bottom: 20px;
-    margin-left: 12px;
-    font-size: 33px;
-    color: white;
-    text-align: center;
 }
 
 .info-section {
     text-align: left;
     width: 90%;
-    margin-top: 0px;
+    margin-top: 5%;
 }
 
 h1 {
-    font-size: 42px;
+    font-size: 72px;
     font-weight: bold;
 }
 
 h2 {
-    font-size: 28px;
+    font-size: 45px;
     color: rgb(103, 103, 137);
 }
 
 h3 {
-    font-size: 20px;
+    font-size: 25px;
     color: rgb(103, 103, 137);
 }
 
 .description {
-    font-size: 25px;
+    font-size: 35px;
     line-height: 1.5;
     margin-top: 20px;
 }
 
 @media (max-width: 1080px) {
     .sidebar {
-        width: 25%;
+        flex: 0 0 25%; /* bredere sidebar op kleinere schermen */
     }
 
     .content {
-        width: 75%;
+        flex: 1; /* inhoud vult resterende ruimte */
     }
 
     .detail-container {
