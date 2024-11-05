@@ -51,8 +51,10 @@ body {
     margin-top: 300px;
     width: 90%;
     display: flex;
-    position: relative;
     flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    z-index: 2;
 }
 
 .schedule-item {
@@ -82,31 +84,48 @@ body {
     flex-grow: 1;
 }
 
-.sidebar ul li {
-    padding: 10px 0; /* Reduced padding */
-    color: white;
-    font-size: 14px; /* Reduced font size */
-    white-space: nowrap; /* Prevent text from wrapping */
+.timeline-circle {
+    width: 20px;
+    height: 20px;
+    border: 4px solid white;
+    background-color: #00a5de; /* blauwe binnenkant cirkel */
+    border-radius: 50%;
+    margin-right: 10px; /* cirkel en tekst afstand */
+    z-index: 3; 
+}
+
+.active-circle {
+    background-color: white; /* highlighted cirkel */
+    margin-left: -30px; /* active cirkel align met tijdlijn */
 }
 
 .schedule-item.active {
     background-color: white;
     color: #00a5de;
     font-weight: bold;
-    padding: 15px;
-    margin-right: -15px; /* Extend the white background left to overlap the content */
-    width: calc(100% + 15px); /* Extend the white background width to connect with the content area */
+    margin-left: 30px; /* highlight wit naar rechts */
+    border-radius: 15px; /* ronde hoeken */
+}
+
+.schedule-item span {
+    flex-grow: 1;
+    margin-left: 8px;
+    text-align: left;
+    font-size: 1.2em; /* responsive: schalend */
 }
 
 .content {
-    width: 80%;
-    background-color: white; /* Ensure the content background is white to match the sidebar */
+    flex: 1; /* vult resterende 80% breedte */
+    height: 100vh; /* hele viewport hoogte */
+    background-color: white; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 40px;
+    justify-content: flex-start; /* inhoud begint bovenaan */
+    padding: 0px;
     position: relative;
+    overflow-y: auto; /* scroll bij teveel inhoud */
+    z-index: 1; /* content onder sidebar bij overlap */
 }
 
 .detail-container {
@@ -123,13 +142,13 @@ body {
 
 .logo {
     position: absolute;
-    bottom: 20px;  /* Adjust this value to control vertical placement */
-    right: 20px;   /* Adjust this value to control horizontal placement */
-    width: 10%;  /* Adjust this to scale the logo relative to the image */
+    bottom: -580px;  /* verticaal logo positie */
+    right: -60px;   /* horizontaal logo positie */
+    width: 10%;    /* logo grootte aanpassen */
     height: auto;
 }
 
-/* Info overlay on the bottom left with gradient */
+/* overlay info linksonder grote-foto */
 .info-overlay {
     position: absolute;
     bottom: 20px;
@@ -145,12 +164,11 @@ body {
 
 .countdown img, .date img, .event img, .location img {
     margin-right: 10px;
-    width: 20px; /* Adjusted icon size */
+    width: 40px;
     height: auto;
 }
 
 .countdown, .date, .event, .location {
-    font-size: 16px;
     color: black;
     display: flex;
     align-items: center;
@@ -161,28 +179,29 @@ body {
     font-weight: bold;
 }
 
-.clock {
-    position: absolute;
-    bottom: 20px;
-    margin-left: 12px;
-    font-size: 33px;
-    color: white;
-    text-align: center;
-}
-
 .info-section {
     text-align: left;
     width: 90%;
-    margin-top: 20px;
+    margin-top: 5%;
 }
 
 h1 {
-    font-size: 32px;
+    font-size: 72px;
     font-weight: bold;
 }
 
+h2 {
+    font-size: 45px;
+    color: rgb(103, 103, 137);
+}
+
+h3 {
+    font-size: 25px;
+    color: rgb(103, 103, 137);
+}
+
 .description {
-    font-size: 16px;
+    font-size: 35px;
     line-height: 1.5;
     margin-top: 20px;
 }
