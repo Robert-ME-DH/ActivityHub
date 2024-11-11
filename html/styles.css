@@ -17,7 +17,7 @@ body {
 
 .sidebar {
     flex: 0 0 20%; /* vaste breedte 20% */
-    background-color: #00a5de;
+    background-color: #007FAD; /* kleur ratio met wit aangepast op WCAG 2.1 */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,7 +88,7 @@ body {
     width: 20px;
     height: 20px;
     border: 4px solid white;
-    background-color: #00a5de; /* blauwe binnenkant cirkel */
+    background-color: #007FAD; /* binnenkant cirkel - kleur ratio met wit aangepast op WCAG 2.1 */
     border-radius: 50%;
     margin-right: 10px; /* cirkel en tekst afstand */
     z-index: 3; 
@@ -101,7 +101,7 @@ body {
 
 .schedule-item.active {
     background-color: white;
-    color: #00a5de;
+    color: #007FAD; /* kleur ratio met wit aangepast op WCAG 2.1 */
     font-weight: bold;
     margin-left: 30px; /* highlight wit naar rechts */
     border-radius: 15px; /* ronde hoeken */
