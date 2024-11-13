@@ -114,9 +114,15 @@ body {
     font-size: 1.2em; /* responsive: schalend */
 }
 
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* hele viewport hoogte */
+}
+
 .content {
     flex: 1; /* vult resterende 80% breedte */
-    height: 100vh; /* hele viewport hoogte */
     background-color: white; 
     display: flex;
     flex-direction: column;
@@ -128,31 +134,58 @@ body {
     z-index: 1; /* content onder sidebar bij overlap */
 }
 
+#voortgang {
+    width: 100%;
+    height: 5vh; /* Set height to 5% of viewport height */
+    position: relative;
+    overflow: visible;
+    border-radius: 5px;
+    z-index: 5;
+}
+
+#balk {
+    width: 100%;
+    height: 100%; /* Fill the height of #voortgang */
+    background-color: #007FAD; 
+    text-align: center;
+    line-height: 5vh; /* Vertically center text based on #voortgang height */
+    color: white;
+    z-index: 5;
+}
+
 .detail-container {
     position: relative;
     width: 90%;
-    height: auto;
-    margin-top: 8%;
+    margin-top: 3%;
 }
 
 .main-image {
     width: 100%;
     height: auto;
+    margin-bottom: 20vh;
 }
 
 .logo {
     position: absolute;
-    bottom: -580px;  /* verticaal logo positie */
-    right: -60px;   /* horizontaal logo positie */
-    width: 10%;    /* logo grootte aanpassen */
+    bottom: -540px;  /* verticaal logo positie */
+    right: -73px;   /* horizontaal logo positie */
+    width: 6%;    /* logo grootte aanpassen */
+    height: auto;
+}
+
+.qr {
+    position: absolute;
+    bottom: -450px;  /* verticaal logo positie */
+    left: -0px;   /* horizontaal logo positie */
+    width: 14%;    /* logo grootte aanpassen */
     height: auto;
 }
 
 /* overlay info linksonder grote-foto */
 .info-overlay {
     position: absolute;
-    bottom: 20px;
-    width: 500px;
+    margin-top: -370px;
+    width: 1200px;
     left: 0px;
     padding: 20px 0px;
     background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
@@ -182,7 +215,7 @@ body {
 .info-section {
     text-align: left;
     width: 90%;
-    margin-top: 5%;
+    margin-top: -160px;
 }
 
 h1 {
@@ -204,6 +237,8 @@ h3 {
     font-size: 35px;
     line-height: 1.5;
     margin-top: 20px;
+    margin-bottom: 23vh;
+
 }
 
 @media (max-width: 1080px) {
