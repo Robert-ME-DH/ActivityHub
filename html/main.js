@@ -28,15 +28,14 @@ fetch('http://localhost:3000/api/messages')
     // highlight eerste bericht
     highlightMessage(data, currentIndex);
 
-    // Helper function to format the date
+    // datum formatteren
     function formatDate(dateString) {
       const date = new Date(dateString);
-      const options = { month: 'long', day: 'numeric' }; // Options for month and day
-      return date.toLocaleDateString('nl-NL', options); // Adjust locale as needed
+      const options = { month: 'long', day: 'numeric' };
+      return date.toLocaleDateString('nl-NL', options);
     }
-
+    
     function highlightMessage(messages, index) {
-      // dynamische berichten weergave
       const scheduleItems = document.querySelectorAll('.schedule-item');
       const circles = document.querySelectorAll('.timeline-circle');
     
@@ -50,18 +49,24 @@ fetch('http://localhost:3000/api/messages')
     
       // update beschrijving dynamisch
       const message = messages[index];
+    
+      // detail error
+      const formattedDate = message.date ? formatDate(message.date) : "N/A";
+      const location = message.location || "N/A";
+      const event = message.event || "N/A";
+    
       descriptionDiv.innerHTML = `
         <div class="detail-container">
+        <img src="${message.imageUrl}" alt="${message.imageAlt}" class="main-image">
         <div class="info-overlay">
-          <p class="date"><img src="icons/date.png" alt="Date Icon">${formatDate(message.date)}</p>
-          <p class="location"><img src="icons/location.png" alt="Location Icon">${message.location}</p>
-          <p class="event"><img src="icons/event.png" alt="Event Icon">${message.event}</p>
+          <p class="date"><img src="icons/date.png" alt="Date Icon">${formattedDate}</p>
+          <p class="location"><img src="icons/location.png" alt="Location Icon">${location}</p>
+          <p class="event"><img src="icons/event.png" alt="Event Icon">${event}</p>
+        </div>
         </div>
         <div class="info-section">
           <h1>${message.title}</h1>
-          <img src="${message.imageUrl}" alt="${message.imageAlt}" class="main-image">
           <p class="description">${message.description}</p>
-        </div>
         </div>
       `;
     }
