@@ -111,7 +111,7 @@ body {
     flex-grow: 1;
     margin-left: 8px;
     text-align: left;
-    font-size: 1.2em; /* responsive: schalend */
+    font-size: 1.0em; /* responsive: schalend */
 }
 
 .main-content {
@@ -167,8 +167,8 @@ body {
 
 .logo {
     position: absolute;
-    bottom: -540px;  /* verticaal logo positie */
-    right: -73px;   /* horizontaal logo positie */
+    bottom: -410px;  /* verticaal logo positie */
+    right: -50px;   /* horizontaal logo positie */
     width: 6%;    /* logo grootte aanpassen */
     height: auto;
 }

@@ -1,0 +1,21 @@
+{
+  "name": "activityhub",
+  "version": "1.0.0",
+  "description": "**Rol verdeling**\r - Fatima:    CSC, FE\r - Daud:      UX, TI\r - Enrico:    TI, FE\r - Ethan:     BE, FE\r - Robert:    BIM, BE\r - Asmir:     CSC, UX",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.6",
+    "express": "^4.21.1",
+    "mysql": "^2.18.1"
+  }
+}
