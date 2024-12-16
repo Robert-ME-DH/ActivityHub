@@ -1,0 +1,26 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Stap 1\
+\
+CREATE TABLE messages (\
+  id INT AUTO_INCREMENT PRIMARY KEY,\
+  title VARCHAR(28) NOT NULL,\
+  date DATE NOT NULL,\
+  location VARCHAR(38) NOT NULL,\
+  event VARCHAR(38) NOT NULL,\
+  imageUrl VARCHAR(500) NOT NULL,\
+  imageAlt VARCHAR(500),\
+  description VARCHAR(496) NOT NULL\
+);\
+\
+Stap 2\
+\
+INSERT INTO messages (title, date, location, event, imageUrl, imageAlt, description)\
+VALUES\
+  ('Kerstvakantie', '2024-12-21', 'Niet Hier', 'Vakantie', 'img/groep.webp', 'Image Alt', 'Scrum redt je vakantie! Start met een backlog: alles wat gedaan moet worden, zoals cadeaus, decoraties en het kerstdiner. Sprintplanning: verdeel je vakantie in blokken en focus per sprint op een doel, bijvoorbeeld cadeaus of huis versieren. Dagelijkse stand-ups: wat deed je, wat doe je en wat blokkeert? Lever een MVP-cadeau: net goed genoeg om te kerst mee te halen. Sluit af met een retrospective: kijk wat beter kan voor Oud en Nieuw!'),\
+  ('Tevreden zijn over jouw loonstrookje?', '2025-01-14', 'Het \'91Proeflokaal: Padualaan 99', 'Workshop', 'img/14jan.webp', 'Image Alt', 'Kom naar de bijeenkomsten "Boost je Money" en breng de tips direct in de praktijk! Onderhandelen over jouw loon kan best spannend zijn. Maar met de juiste kennis en voorbereiding ga jij zelfverzekerd dit gesprek aan. Kom op 14 januari naar Het Proeflokaal en krijg praktische adviezen van een expert over hoe je jouw loonstrookje naar een hoger niveau tilt. Deelname is GRATIS, verzorgd door HUWerkbijjestudie! Er wordt gezorgd voor een hapje en een drankje. Mis deze kans niet!');}
