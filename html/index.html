@@ -5,136 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open-ICT Activityhub</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="main.js"></script>
+    <script defer src="bar.js"></script>
+    <script defer src="clock.js"></script>
     <script>
         window.onload = function() {
           move();
         };
         </script>
 </head>
+
 <body>
-    <div class="container">
 
-        <!-- Open-ICT Logo - rechtsonder op de grote foto -->
+<div class="container">
 
-        <div class="sidebar">
-            <div class="timeline"></div>
-            <div class="schedule">
-                <div class="schedule-item">
-                    <div class="timeline-circle"></div>
-                    <span>Gastsprekers</span>
-                    <li>24 okt</li>
-                </div>
-                <div class="schedule-item">
-                    <div class="timeline-circle"></div>
-                    <span>Halloween</span>
-                    <li>24 okt</li>
-                </div>
-                <div class="schedule-item">
-                    <div class="timeline-circle"></div>
-                    <span>Bedrijfsbezoek</span>
-                    <li>24 okt</li>
-                </div>
-                <div class="schedule-item active">
-                    <div class="timeline-circle active-circle"></div> <!-- Highlight -->
-                    <span>Winter Efteling</span>
-                    <li>13 dec</li>
-                </div>
-                <div class="schedule-item">
-                    <div class="timeline-circle"></div>
-                    <span>Kerstvakantie</span>
-                    <li>23 dec</li>
-                </div>
-                <div class="schedule-item">
-                    <div class="timeline-circle"></div>
-                    <span>Assessment</span>
-                    <li>27 jan</li>
-                </div>
-            </div>
-            <!-- Tijdweergave obv tijd op de OS die HTML weergeeft -->
-            <div id="clock" class="clock"></div> 
+    <div class="sidebar">
+        <div class="timeline"></div>
+        <div class="schedule" id="schedule">
+        <!-- sidebar items js -->
         </div>
-
-        <div class="main-content">
-            <div class="content">
-                <div class="detail-container">
-
-                    <!-- grote foto - bovenaan artikel-->
-                    <img src="img/wide-efteling.webp" alt="Illustratie van de Winter Efteling. Aanzicht ingang van het park in winterse omstandigheden." class="main-image">
-                    <!-- Open-ICT Logo - rechtsonder -->
-                    <img src="img/openict-logo.png" alt="Open-ICT Logo" class="logo">
-
-                    <!-- QR code -->
-                    <img src="img/qr-29nov.png" alt="Open-ICT Logo" class="qr">
-            
-                
-                    <div class="info-overlay">
-                        <p class="date"><img src="icons/date.png" alt="Date Icon"> 13 december 2024</p>
-                        <p class="location"><img src="icons/location.png" alt="Location Icon"> Efteling</p>
-                        <p class="event"><img src="icons/event.png" alt="Event Icon">Open ICT studenten</p>
-                    </div>
-
-                </div>
-                <div class="info-section">
-                    <h1>Winter Efteling met Open ICT</h1>
-
-                    <p class="description">
-
-                        Het is weer tijd voor de Winter Efteling! Op 13 december 2024 gaan we met Open ICT weer onderweg naar de magische Efteling en mogen wij gaan genieten 			van de leuke attracties en gezellige sfeer.
-                        Hoeveel kost het? 
-                        20 euro p.p.<br>
-                        Open-ICT studenten kunnen zich tot 29 november aanmelden: scan de QR!
-                        <br><br>
-                    </p>
-                </div>
-
-                <!-- voortgangsbalk onder berichten -->
-                <div id="voortgang">
-                    <div id="balk">20 sec</div>
-                </div>
-
-            </div>
-        </div> 
+        <div id="clock" class="clock"></div> 
     </div>
 
-    <!-- Voortgangsbalk -->
-    <script>
-        function move() {
-          var elem = document.getElementById("balk");
-          var totalDuration = 20; //  totale duur in seconden
-          var intervalTime = 5; //interval tijd in milliseconden
-          var totalSteps = (totalDuration * 1000) / intervalTime;
-          var width = 100; 
-          var decrement = 100 / totalSteps; // afname hoeveelheid
-          var timeRemaining = totalDuration; // resterende tijd
-          var id = setInterval(frame, intervalTime);
-          function frame() {
-            if (width <= 0) {
-              clearInterval(id);
-              elem.style.width = "0%";
-              elem.innerHTML = "";
-            } else {
-              width -= decrement;
-              timeRemaining -= intervalTime / 1000;
-              elem.style.width = width + "%";
-              elem.innerHTML = Math.ceil(timeRemaining) + " sec";
-            }
-          }
-        }
-        </script>
+    <div class="main-content">
+        
+        <div class="content" id="description">
+        <!-- highlight bericht js -->
+        </div>
+    </div> 
+</div>
 
-    <!-- Weergave tijd onderin de sidebar -->
-    <script>
-        function updateClock() {
-            const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            document.getElementById('clock').innerText = `${hours}:${minutes}:${seconds}`;
-        }
-    
-        setInterval(updateClock, 1000);
-        updateClock(); // Call om klok direct te weergeven
-    </script>
-    
+<!-- voortgangsbalk onder berichten -->
+ <div id="voortgang">
+     <div id="balk">20 sec</div>
+ </div>
+
 </body>
 </html>
+
