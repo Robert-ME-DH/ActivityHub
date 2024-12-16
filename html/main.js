@@ -7,9 +7,18 @@ fetch('http://localhost:3000/api/messages')
     let currentIndex = 0;
 
     scheduleContainer.innerHTML = '';
+  
+    // bepaal huidige datum 
+    const currentDate = new Date();
+
+    // sorteer en filter berichten
+    const filteredData = data
+      .filter(msg => new Date(msg.date) >= currentDate) // alleen vandaag of later weergeven
+      .sort((a, b) => new Date(a.date) - new Date(b.date)) // sorteer op datum
+      .slice(0, 7); // beperk tot 7 berichten
 
     // dynamische items in de sidebar
-    data.forEach((msg, index) => {
+    filteredData.forEach((msg, index) => {
       const item = document.createElement('div');
       item.className = 'schedule-item';
       item.dataset.index = index;
@@ -20,13 +29,12 @@ fetch('http://localhost:3000/api/messages')
       item.innerHTML = `
         <div class="timeline-circle"></div>
         <span>${msg.title}</span>
-        <li>${formattedDate}</li>
       `;
       scheduleContainer.appendChild(item);
     });
 
     // highlight eerste bericht
-    highlightMessage(data, currentIndex);
+    highlightMessage(filteredData, currentIndex);
 
     // datum formatteren
     function formatDate(dateString) {
@@ -57,6 +65,8 @@ fetch('http://localhost:3000/api/messages')
     
       descriptionDiv.innerHTML = `
         <div class="detail-container">
+        <!-- Open-ICT Logo - rechtsonder -->
+        <img src="img/openict-logo.png" alt="Open-ICT Logo" class="logo">
         <img src="${message.imageUrl}" alt="${message.imageAlt}" class="main-image">
         <div class="info-overlay">
           <p class="date"><img src="icons/date.png" alt="Date Icon">${formattedDate}</p>
@@ -73,9 +83,9 @@ fetch('http://localhost:3000/api/messages')
 
     // 30000 is 30 seconden interval tussen berichten - 2000 testwaarde
     setInterval(() => {
-      currentIndex = (currentIndex + 1) % data.length;
-      highlightMessage(data, currentIndex);
-    }, 2000);
+      currentIndex = (currentIndex + 1) % filteredData.length; 
+      highlightMessage(filteredData, currentIndex); 
+    }, 30000);
   })
   .catch(error => {
     console.error('Error fetching data:', error);

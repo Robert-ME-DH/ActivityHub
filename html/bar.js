@@ -1,4 +1,4 @@
-        function move() {
+function move() {
           var elem = document.getElementById("balk");
           var totalDuration = 20; //  totale duur in seconden
           var intervalTime = 5; //interval tijd in milliseconden
