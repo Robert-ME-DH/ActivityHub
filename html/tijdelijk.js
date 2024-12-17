@@ -4,7 +4,7 @@
       date: '2024-12-21',
       location: 'Niet Hier',
       event: 'Vakantie',
-      imageUrl: 'img/groep.webp',
+      imageUrl: 'img/dec-loop.mp4',
       imageAlt: 'Image Alt',
       description: 'Scrum redt je vakantie! Start met een backlog: alles wat gedaan moet worden, zoals cadeaus, decoraties en het kerstdiner. Sprintplanning: verdeel je vakantie in blokken en focus per sprint op een doel, bijvoorbeeld cadeaus of huis versieren. Dagelijkse stand-ups: wat deed je, wat doe je en wat blokkeert? Lever een MVP-cadeau: net goed genoeg om te kerst mee te halen. Sluit af met een retrospective: kijk wat beter kan voor Oud en Nieuw!'
     },
@@ -80,16 +80,24 @@
       const location = message.location || "N/A";
       const event = message.event || "N/A";
     
+      // Main-image bovenaan bericht: onderscheid video of foto
+      const isVideo = message.imageUrl && message.imageUrl.endsWith('.mp4');
+      const mediaContent = isVideo
+        ? `<video autoplay loop muted playsinline class="main-media">
+              <source src="${message.imageUrl}" type="video/mp4">
+            </video>`
+        : `<img src="${message.imageUrl}" alt="${message.imageAlt}" class="main-media">`;
+
       descriptionDiv.innerHTML = `
         <div class="detail-container">
-        <!-- Open-ICT Logo - rechtsonder -->
-        <img src="img/openict-logo.png" alt="Open-ICT Logo" class="logo">
-        <img src="${message.imageUrl}" alt="${message.imageAlt}" class="main-image">
-        <div class="info-overlay">
-          <p class="date"><img src="icons/date.png" alt="Date Icon">${formattedDate}</p>
-          <p class="location"><img src="icons/location.png" alt="Location Icon">${location}</p>
-          <p class="event"><img src="icons/event.png" alt="Event Icon">${event}</p>
-        </div>
+          <!-- Open-ICT Logo - rechtsonder -->
+          <img src="img/openict-logo.png" alt="Open-ICT Logo" class="logo">
+          ${mediaContent}
+          <div class="info-overlay">
+            <p class="date"><img src="icons/date.png" alt="Date Icon">${formattedDate}</p>
+            <p class="location"><img src="icons/location.png" alt="Location Icon">${location}</p>
+            <p class="event"><img src="icons/event.png" alt="Event Icon">${event}</p>
+          </div>
         </div>
         <div class="info-section">
           <h1>${message.title}</h1>
