@@ -1,0 +1,14 @@
+CREATE TABLE messages (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(28) NOT NULL,
+  date DATE NOT NULL,
+  location VARCHAR(38) NOT NULL,
+  event VARCHAR(38) NOT NULL,
+  imageUrl VARCHAR(500) NOT NULL,
+  imageAlt VARCHAR(500),
+  description VARCHAR(496) NOT NULL
+);
+
+INSERT INTO messages (title, date, location, event, imageUrl, imageAlt, description)
+VALUES
+  ('Vandaag is de Sprint Review', '2024-12-11', 'HL15-4.098 OP DE GANG', 'Activiteit', 'img/grote-foto.webp', 'Image Alt', 'Het is weer tijd voor de Winter Efteling! Op 13 december 2024 gaan we met Open ICT weer onderweg naar de magische Efteling en mogen wij gaan genieten van de leuke attracties en gezellige sfeer. Hoeveel kost het? 20 euro p.p. Open-ICT studenten kunnen zich tot 29 november aanmelden: scan de QR!');
