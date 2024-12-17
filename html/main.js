@@ -63,23 +63,31 @@ fetch('http://localhost:3000/api/messages')
       const location = message.location || "N/A";
       const event = message.event || "N/A";
     
-      descriptionDiv.innerHTML = `
-        <div class="detail-container">
+     // Main-image bovenaan bericht: onderscheid video of foto
+     const isVideo = message.imageUrl && message.imageUrl.endsWith('.mp4');
+     const mediaContent = isVideo
+       ? `<video autoplay loop muted playsinline class="main-media">
+            <source src="${message.imageUrl}" type="video/mp4">
+          </video>`
+       : `<img src="${message.imageUrl}" alt="${message.imageAlt}" class="main-media">`;
+
+    descriptionDiv.innerHTML = `
+      <div class="detail-container">
         <!-- Open-ICT Logo - rechtsonder -->
         <img src="img/openict-logo.png" alt="Open-ICT Logo" class="logo">
-        <img src="${message.imageUrl}" alt="${message.imageAlt}" class="main-image">
+        ${mediaContent}
         <div class="info-overlay">
           <p class="date"><img src="icons/date.png" alt="Date Icon">${formattedDate}</p>
           <p class="location"><img src="icons/location.png" alt="Location Icon">${location}</p>
           <p class="event"><img src="icons/event.png" alt="Event Icon">${event}</p>
         </div>
-        </div>
-        <div class="info-section">
-          <h1>${message.title}</h1>
-          <p class="description">${message.description}</p>
-        </div>
-      `;
-    }
+      </div>
+      <div class="info-section">
+        <h1>${message.title}</h1>
+        <p class="description">${message.description}</p>
+      </div>
+    `;
+  }
 
     // 30000 is 30 seconden interval tussen berichten - 2000 testwaarde
     setInterval(() => {

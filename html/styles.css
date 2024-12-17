@@ -165,6 +165,15 @@ body {
     margin-bottom: 20vh;
 }
 
+.main-media {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20vh; /* Same margin as image */
+    border: none; /* Ensure no borders appear */
+    object-fit: cover; /* Optional: Ensures the video/image scales correctly */
+    display: block;
+}
+
 .logo {
     position: absolute;
     bottom: -410px;  /* verticaal logo positie */
