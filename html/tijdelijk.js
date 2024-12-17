@@ -1,5 +1,14 @@
   const data = [
     {
+      title: 'Jouw bericht hier?',
+      date: '2025-12-20',
+      location: '-',
+      event: '-',
+      imageUrl: 'img/fullscreen.mp4',
+      imageAlt: '-',
+      description: '-'
+    },
+    {
       title: 'Kerstvakantie',
       date: '2024-12-21',
       location: 'Niet Hier',
@@ -75,22 +84,37 @@
       // update beschrijving dynamisch
       const message = messages[index];
     
-      // detail error
+      // Uitzondering voor fullscreen video
+      const isFullscreenVideo = 
+        message.description === "-" &&
+        message.imageAlt === "-" &&
+        message.location === "-" &&
+        message.event === "-";
+    
+      // Fullscreen Video
+      if (isFullscreenVideo) {
+        descriptionDiv.innerHTML = `
+          <video autoplay loop muted playsinline class="fullscreen">
+            <source src="${message.imageUrl}" type="video/mp4">
+          </video>
+        `;
+        return; 
+      }
+    
+      // standaard format
       const formattedDate = message.date ? formatDate(message.date) : "N/A";
       const location = message.location || "N/A";
       const event = message.event || "N/A";
     
-      // Main-image bovenaan bericht: onderscheid video of foto
       const isVideo = message.imageUrl && message.imageUrl.endsWith('.mp4');
       const mediaContent = isVideo
         ? `<video autoplay loop muted playsinline class="main-media">
-              <source src="${message.imageUrl}" type="video/mp4">
-            </video>`
+             <source src="${message.imageUrl}" type="video/mp4">
+           </video>`
         : `<img src="${message.imageUrl}" alt="${message.imageAlt}" class="main-media">`;
-
+    
       descriptionDiv.innerHTML = `
         <div class="detail-container">
-          <!-- Open-ICT Logo - rechtsonder -->
           <img src="img/openict-logo.png" alt="Open-ICT Logo" class="logo">
           ${mediaContent}
           <div class="info-overlay">
