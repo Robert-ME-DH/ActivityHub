@@ -1,0 +1,20 @@
+Check autostart file:
+
+/home/pi/.config/lxsession/LXDE-pi/autostart
+
+Indien niet bestaand, aanmaken:
+
+mkdir -p /home/pi/.config/lxsession/LXDE-pi
+
+Open autostart file met nano:
+
+nano /home/pi/.config/lxsession/LXDE-pi/autostart
+
+Voeg toe aan bestand:
+
+@lxpanel --profile LXDE-pi
+@pcmanfm --desktop --profile LXDE-pi
+@xset s off
+@xset -dpms
+@xset s noblank
+@chromium-browser --start-fullscreen --noerrdialogs --disable-infobars file:///home/gebruiker/Activityhub/html/index.html
