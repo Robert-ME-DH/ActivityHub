@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toevoegen - Dashboard - Activity Hub</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+    <header>
+        <h1>Toevoegen - Activity Hub Dashboard</h1>
+        <p>Bericht Toevoegen</p>
+    </header>
+
+    <main>
+        <div class="message-list" id="message-list">
+            <div class="content">
+                <h3></h3>
+                <p></p>
+                <div class="event-info">
+                    <form id="addMessage">
+                        <label for="username">Titel</label>
+                        <input type="text" id="title" name="title" required>
+                        <br>
+                
+                        <label for="title">Datum:</label>
+                        <input type="description" id="description" name="description" required maxlength="496">
+                        <br>
+                
+                        <label for="Omschrijving">Omschrijving:</label>
+                        <input type="description" id="description" name="description" required maxlength="496">
+                        <br>
+                
+                        <button type="submit">Toevoegen</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('addMessage').addEventListener('submit', function(event) {
+            event.preventDefault(); // houd toevoegen tegen
+            const errorMessages = [];
+        
+            // Valideer lengte titel
+            const title = document.getElementById('beschrijving').value;
+            if (password.length < 497) {
+                errorMessages.push('Beschrijving moet minder dan 497 tekens lang zijn.');
+            }
+        
+            // Valideer lengte titel
+            const description = document.getElementById('beschrijving').value;
+            if (password.length < 497) {
+                errorMessages.push('Beschrijving moet minder dan 497 tekens lang zijn.');
+            }
+        
+            // Foutmelding
+            const errorMessagesDiv = document.getElementById('errorMessages');
+            errorMessagesDiv.innerHTML = '';
+            if (errorMessages.length > 0) {
+                errorMessages.forEach(message => {
+                    const p = document.createElement('p');
+                    p.textContent = message;
+                    p.style.color = 'red'; // foutmelding kleur
+                    errorMessagesDiv.appendChild(p);
+                });
+            } else {
+                alert('Bericht toegevoegd!'); // 
+            }
+        });
+
+    </script>
+
+    <footer>
+        <p>&copy; 2025 Activity Hub. All rights reserved.</p>
+    </footer>
+</div>
+
+</body>
+</html>
