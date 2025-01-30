@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toevoegen - Dashboard - Activity Hub</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+    <header>
+        <h1>Bericht Toevoegen</h1>
+            <p> Berichten verschijnen chronologisch op het Activityhub scherm op de gang.<br>
+                Berichten verdwijnen automatisch als de datum is verstreken.
+            </p>
+    </header>
+
+    <main>
+        <div class="message-list" id="message-list">
+            <div class="content">
+                <div class="event-info">
+                    <form id="toevoegen">
+
+                        <label for="imageUrl">
+                            <b>Afbeelding of Video</b> 
+                            <br><i>Bijvoorbeeld: img/publiekesessie.mp4, img/groep.webp, img/dec-loop.mp4</i>
+                        </label><br>
+                        <input type="text" id="imageUrl" name="imageUrl" value="img/dec-loop.mp4">
+                        <br><br>
+
+                        <label for="title">
+                            <b>Titel</b>
+                            <br>Maximaal 28 karakters
+                        </label><br>
+                        <input type="text" id="title" name="title" size="28" required maxlength="28">
+                        <br><br>
+                        
+                        <label for="date">
+                            <b>Datum</b>
+                        </label><br>
+                        <input type="date" id="date" name="date" required>
+                        <br><br>
+
+                        <label for="time">
+                            <b>Tijd</b>
+                        </label><br>
+                        <input type="time" id="time" name="time" required>
+                        <br><br>
+                        <label for="location">
+                            <b>Locatie</b> 
+                            <br><i>Bijvoorbeeld: HL15 4.094</i>
+                            <br>Maximaal 38 karakters
+                        </label><br>
+                        <input type="text" id="location" name="location" size="40" required maxlength="38">
+                        <br><br>
+
+                        <label for="eventName">
+                            <b>Eventnaam</b> 
+                            <br><i>Bijvoorbeeld: Gilde, Gastspreker, Publieke Sessie
+                            <br>Maximaal 38 karakters</label><br>
+                        <input type="text" id="eventName" name="eventName" size="40" required maxlength="38">
+                        <br><br>
+
+                        <label for="description">
+                        <b>Omschrijving</b>
+                        <br>Maximaal 496 karakters
+                        </label><br>
+                        <textarea type="description" id="description" name="description" rows="10" cols="100" required maxlength="496"></textarea>
+                        <br><br>
+
+                        <button type="submit">Toevoegen</button>
+
+                    </form>
+
+                    <br><br>
+                    Verifieer functionaliteit na toevoegen:
+                    <p id="test"></p>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+</div>
+
+<script>
+    document.getElementById('toevoegen').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // inputs ophalen
+        const imageUrl = document.getElementById('imageUrl').value;
+        const title = document.getElementById('title').value;
+        const date = document.getElementById('date').value;
+        const time = document.getElementById('time').value;
+        const location = document.getElementById('location').value;
+        const eventName = document.getElementById('eventName').value;
+        const description = document.getElementById('description').value;
+
+        // inputs weergeven 
+        const displayElement = document.getElementById('test');
+        displayElement.innerHTML = ` Afbeelding of video: ${imageUrl} <br> Titel: ${title} <br> Datum: ${date} <br> Tijd: ${time} <br> Locatie: ${location} <br> Eventnaam: ${eventName} <br> Omschrijving: ${description} <br>`;
+    });
+</script>
+
+</body>
+</html>

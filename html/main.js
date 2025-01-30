@@ -1,10 +1,19 @@
     const data = [
       {
-        title: 'Jouw bericht hier?',
+        title: 'Prototyping',
         date: '2025-12-20',
         location: '-',
         event: '-',
-        imageUrl: 'img/fullscreen.mp4',
+        imageUrl: 'img/1ps.mp4',
+        imageAlt: '-',
+        description: '-'
+      },
+      {
+        title: 'Eind resultaat',
+        date: '2025-12-21',
+        location: '-',
+        event: '-',
+        imageUrl: 'img/2ps.mp4',
         imageAlt: '-',
         description: '-'
       },
@@ -130,8 +139,8 @@
         `;
       }
 
-      // 30000 is 30 seconden interval tussen berichten - 2000 testwaarde
+      // ALLEEN VOOR PUBLIEKE SESSIE DISPLAY 15000 - 30000 is 30 seconden interval tussen berichten - 2000 testwaarde
       setInterval(() => {
         currentIndex = (currentIndex + 1) % filteredData.length; 
         highlightMessage(filteredData, currentIndex); 
-      }, 30000);
+      }, 15000);

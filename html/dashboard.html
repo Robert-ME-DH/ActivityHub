@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Activity Hub</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+    <header>
+        <h1>Activity Hub Dashboard</h1>
+        <p>Overview of messages and events.</p>
+    </header>
+
+    <main>
+        <div class="message-list" id="message-list">
+            <!-- JavaScript will populate this area -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Activity Hub. All rights reserved.</p>
+    </footer>
+</div>
+
+<script>
+    const messages = [
+        {
+            id: 66,
+            title: "Kerstvakantie",
+            date: "2024-12-21",
+            location: "Niet Hier",
+            event: "Vakantie",
+            imageUrl: "img/groep.webp",
+            imageAlt: "Image Alt",
+            description: "Scrum redt je vakantie! Start met een backlog: alles wat gedaan moet worden, zoals cadeaus, decoraties en het kerstdiner. Sprintplanning: verdeel je vakantie in blokken en focus per sprint op een doel, bijvoorbeeld cadeaus of huis versieren. Dagelijkse stand-ups: wat deed je, wat doe je en wat blokkeert? Lever een MVP-cadeau: net goed genoeg om te kerst mee te halen. Sluit af met een retrospective: kijk wat beter kan voor Oud en Nieuw!"
+        },
+        {
+            id: 67,
+            title: "Tevreden zijn over jouw loonstrookje?",
+            date: "2025-01-14",
+            location: "Het ‘Proeflokaal: Padualaan 99",
+            event: "Workshop",
+            imageUrl: "img/14jan.webp",
+            imageAlt: "Image Alt",
+            description: "Kom naar de bijeenkomsten 'Boost je Money' en breng de tips direct in de praktijk! Onderhandelen over jouw loon kan best spannend zijn. Maar met de juiste kennis en voorbereiding ga jij zelfverzekerd dit gesprek aan. Kom op 14 januari naar Het Proeflokaal en krijg praktische adviezen van een expert over hoe je jouw loonstrookje naar een hoger niveau tilt. Deelname is GRATIS, verzorgd door HUWerkbijjestudie! Er wordt gezorgd voor een hapje en een drankje. Mis deze kans niet!"
+        }
+    ];
+
+    function renderMessages() {
+        const messageList = document.getElementById('message-list');
+
+        messages.forEach((message) => {
+            // Create a card for each message
+            const card = document.createElement('div');
+            card.className = 'message-card';
+
+            card.innerHTML = `
+                <img src="${message.imageUrl}" alt="${message.imageAlt}">
+                <div class="content">
+                    <h3>${message.title}</h3>
+                    <p>${message.description}</p>
+                    <div class="event-info">
+                        <p><strong>Date:</strong> ${message.date}</p>
+                        <p><strong>Location:</strong> ${message.location}</p>
+                        <p><strong>Event Type:</strong> ${message.event}</p>
+                    </div>
+                </div>
+            `;
+
+            messageList.appendChild(card);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', renderMessages);
+</script>
+
+</body>
+</html>
